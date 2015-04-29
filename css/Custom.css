@@ -1,0 +1,21 @@
+#RegisterButton {
+outline:none
+
+}
+
+.jumbotron {
+    border-radius: 0px;
+}
+
+.newpart{
+
+background-color: #f4f4f4;
+}
+
+
+
+#canvas-holder {
+        width: 100%;
+        margin-top: 50px;
+        text-align: center;
+    }

@@ -1,0 +1,280 @@
+<html>
+    <head>
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+
+        <!-- Optional theme -->
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/ladda-themeless.min.css">
+        <link rel="stylesheet" href="css/Custom.css">
+
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="js/jquery-2.1.3.js"></script>
+        <script src="js/bootstrap.js"></script>
+        <script src="js/spin.min.js"></script>
+        <script src="js/ladda.min.js"></script>
+        <script src="js/Custom.js"></script>
+
+    </head>
+    <body>
+
+        <nav class="navbar navbar-default navbar-static-top">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="#">Election Commision of India</a>
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active" ><a href="index.html">Home <span class="sr-only">(current)</span></a></li>
+                        <li ><a href="voting.html">Vote</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Results<span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="currentelection.html">Current Election</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Past Election</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Future Election</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-expanded="false">Help <span class="caret"></span></a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">About Us</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">FAQ's</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Contact Us</a></li>
+
+                            </ul>
+                        </li>
+
+
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="Submit" class="btn btn-default">Submit</button>
+                        </form>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+
+
+
+
+                        <li class="dropdown">
+<a href="#" id="LoginHeader" class="dropdown-toggle btn btn-link" data-toggle="dropdown" role="button" aria-expanded="false">Login<span class="caret"></span></a>                            
+ <div class="dropdown-menu bg-info" id="AboveLoginForm" role="menu" style="padding:17px;">
+                                <form  id="LoginForm" class="navbar-form navbar-right" method="post" >
+                                    <div class="form-group">
+                                        <input name="username" id="username" class="form-control" type="text" placeholder="Username"> <br>
+                                        <div  class="text-danger " id="iderror" ></div>
+                                        <Br>
+
+                                        <input name="password" id="password" type="password" class="form-control" placeholder="Password"><br>
+                                        <div class="text-danger" id="paserror" ></div>
+                                        <br>
+                                    </div>
+
+                                </form>
+                                <div id ="ProfileData"></div>
+                                <button type ="submit" id="LogInButton" class="btn btn-primary ladda-button LogInButton" data-style="expand-left"><span class="ladda-label"><div id="LogInStatus" class="Login">Login</div></span></button>
+                            </div>
+                        </li>
+
+                        <li>
+                            <a href="#" id="RegisterButton" data-toggle="modal" data-target="#RegisterModal">
+                                Register
+                            </a>
+                        </li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+        <!--Registeration Modal -->
+        <div id="RegisterModal" class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+            <div id ="RegisterFormContent">           
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+
+                        <div class="modal-header bg-primary">
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                            <h4 class="modal-title" id="myModalLabel">Registration</h4>
+                        </div>
+
+                        <form class="form-horizontal" id="RegForm" method="post">
+                            <div class="modal-body bg-info">
+                                <div class="form-group"><div class="col-lg-12">
+                                        <input name="firstname" id="firstname" class="form-control" type="text" placeholder="First Name"><br>
+                                        <input name="lastname" id="lastname" class="form-control" type="text" placeholder="Last Name"><br>
+
+                                        <input name="username" id="usernamereg" class="form-control" type="text" placeholder="Username"> <br>
+
+                                        <input name="password" id="passwordreg" type="password" class="form-control" placeholder="Password"><br>
+                                        <input name="repassword" id="repassword" type="password" class="form-control" placeholder="Re-Enter Password"><br>
+                                        <select name="state" id="stateinfo" class="form-control">
+                                            <option value="none">Select State</option>
+                                            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                            <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                            <option value="Assam">Assam</option>
+                                            <option value="Bihar">Bihar</option>
+                                            <option value="Chandigarh">Chandigarh</option>
+                                            <option value="Chhattisgarh">Chhattisgarh</option>
+                                            <option value="Dadra and Nagar Haveli">Dadra and Nagar Haveli</option>
+                                            <option value="Daman and Diu">Daman and Diu</option>
+                                            <option value="Delhi">Delhi</option>
+                                            <option value="Goa">Goa</option>
+                                            <option value="Gujarat">Gujarat</option>
+                                            <option value="Haryana">Haryana</option>
+                                            <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                            <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                            <option value="Jharkhand">Jharkhand</option>
+                                            <option value="Karnataka">Karnataka</option>
+                                            <option value="Kerala">Kerala</option>
+                                            <option value="Lakshadweep">Lakshadweep</option>
+                                            <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                            <option value="Maharashtra">Maharashtra</option>
+                                            <option value="Manipur">Manipur</option>
+                                            <option value="Meghalaya">Meghalaya</option>
+                                            <option value="Mizoram">Mizoram</option>
+                                            <option value="Nagaland">Nagaland</option>
+                                            <option value="Orissa">Orissa</option>
+                                            <option value="Pondicherry">Pondicherry</option>
+                                            <option value="Punjab">Punjab</option>
+                                            <option value="Rajasthan">Rajasthan</option>
+                                            <option value="Sikkim">Sikkim</option>
+                                            <option value="Tamil Nadu">Tamil Nadu</option>
+                                            <option value="Tripura">Tripura</option>
+                                            <option value="Uttaranchal">Uttaranchal</option>
+                                            <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                            <option value="West Bengal">West Bengal</option>
+                                        </select><br><br>
+                                    </div>
+                                    <div class="col-md-1"><span class="input-group-addon">
+                                            <input type="checkbox" name="tnc" value="tnc" id="tnc"> I agree to all Terms & Conditions!</span></div><br><Br>
+                                    <div class="form-group has-error">  <label id="msg" class="control-label" for="inputError1"></label></div>
+
+
+                                </div>
+                            </div>
+                            <div class="modal-footer bg-warning">
+
+                                <button type="button" class="btn btn-default" data-dismiss="modal" id="RegModalClose">Close</button>
+                                <button type ="submit" id="SignUpButton" class="btn btn-primary ladda-button SignUpButton" data-style="expand-left"><span class="ladda-label"><div id="SignUpStatus">Sign Up</div></span></button>
+                                <!----<input type="Submit" class="btn btn-primary" id="SignUpButton" value="Sign Up">---->
+
+                            </div>
+
+                        </form>
+
+
+
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal-dialog -->
+            </div>
+            <div id="AccountDetailsContent" >
+                <div class="modal-dialog modal-sm">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary">
+                            <h4 class="modal-title" id="accdetails">Account Details</h4>
+                        </div>
+                        <div class="modal-body bg-info">
+                            <table class="table table-hover">
+                                   <tr class="info">
+                                    <td>Username:</td><td><div id="accusername"></div></td>
+                                </tr>
+                                <tr class="info">
+                                    <td>Full Name :</td><td><div id="accfullname"></div></td>
+                                </tr>
+                                <tr class="info">
+                                    <td>State:</td><td><div id="accstate"></div></td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="modal-footer bg-warning">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!---Registeration Modal--->
+
+
+        <!---NavBar Top End---->
+        <div class="jumbotron">
+            <div class="container"> 
+                <h2>Delhi Elections to End Soon!</h2>
+                <p>Counting of votes for the high-profile Delhi Assembly polls, in which the BJP and Aam Aadmi Party are locked in a direct fight, will take place tomorrow.</p>
+                <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+            </div>
+        </div>
+
+        <div class="col-md-9 newpart">
+            <h3>Current Issues</h3>
+            <ul style="list-style-type:disc">
+
+                <li><a href="#"><strong>Bye-election to the Parliamentary Constituency and State Legslative Assembly, 2015-Exit Poll regarding.(English & Hindi)</strong></a></li>
+                <li><a href="#"><strong>Commission's Letter to Shri Rishikesh Kumar of Aam Aadmi Party regarding display of poster at booths of Political Party.(English & Hindi)</strong></a></li>
+                <li><a href="#"><strong>Commission's Letter to Shri Arvind Kejriwal regarding tampering of EVMs(English / Hindi)</strong></a></li>
+                <li><a href="#"><strong>General Election to the Legslative Assembly of NCT of Delhi- 2015- Polling day Measures –regarding.(English / Hindi)</strong></a></li>
+            </ul>
+
+
+            <h3>Press Release</h3>
+
+            <ul style="list-style-type:disc">
+                <li><a href="#"><strong>Biennial elections to the Andhra Pradesh and Telangana Legislative Councils from Graduates’ and Teachers’ Constituencies(English & Hindi)</strong></a></li>
+                <li><a href="#"><strong>Biennial-elections & Bye-elections to the Legislative Council of Jammu & Kashmir.</strong></a></li>
+                <li><a href="#"><strong>Launching of National Voter Service Portal (NVSP) – reg</strong></a></li>
+                <li><a href="#"><strong>Dissemination of Trends & Results through Display at Election Commission of India, Nirvachan Sadan, Ashoka Road, New Delhi.</strong></a></li>
+                <li><a href="#"><strong>Dissemination of Trends & Results through website (English / Hindi)</strong></a></li>
+            </ul>
+            <br><br><br><br>
+        </div>
+
+
+
+        <div class="col-md-3 sidebar-offcanvas">
+            <div class="list-group">
+                <a href="#" class="list-group-item active">Important Links</a>
+                <a href="#" class="list-group-item">Counting Day 2015</a>
+                <a href="#" class="list-group-item">Voter Education Channel</a>
+                <a href="#" class="list-group-item">Search your name in Voters List</a>
+                <a href="#" class="list-group-item">Register Complaints Here</a>
+                <a href="#" class="list-group-item">Polling Station & BLO Details</a>
+                <a href="#" class="list-group-item">PDF Elctoral Roll</a>
+                <a href="#" class="list-group-item">List of Claims & Objections</a>
+                <a href="#" class="list-group-item">General Election 2014</a>
+
+            </div>
+        </div>
+
+
+
+        <!----Footer-->
+
+        <footer class="footer">
+            <div class="container">
+                <p class="text-muted"><strong>Copyright @ SAKEC BED 2015</strong></p>
+            </div>
+        </footer>
+
+    </body>
+</html>
